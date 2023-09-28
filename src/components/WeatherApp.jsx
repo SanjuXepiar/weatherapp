@@ -31,36 +31,39 @@ const WeatherApp = () => {
           setLocation(data.name);
           setRelativeHumidity(`${data.main.humidity}%`);
           setWindSpeed(`${data.wind.speed} km/h`);
-          if (data.weather.icon === "01d" || data.weather.icon === "01n") {
+          if (
+            data.weather[0].icon === "01d" ||
+            data.weather[0].icon === "01n"
+          ) {
             setWeatherIcon(clearIcon);
           } else if (
-            data.weather.icon === "02d" ||
-            data.weather.icon === "02n"
+            data.weather[0].icon === "02d" ||
+            data.weather[0].icon === "02n"
           ) {
             setWeatherIcon(cloudyIcon);
           } else if (
-            data.weather.icon === "03d" ||
-            data.weather.icon === "03n"
+            data.weather[0].icon === "03d" ||
+            data.weather[0].icon === "03n"
           ) {
             setWeatherIcon(thunderIcon);
           } else if (
-            data.weather.icon === "04d" ||
-            data.weather.icon === "04n"
+            data.weather[0].icon === "04d" ||
+            data.weather[0].icon === "04n"
           ) {
             setWeatherIcon(thunderIcon);
           } else if (
-            data.weather.icon === "09d" ||
-            data.weather.icon === "09n"
+            data.weather[0].icon === "09d" ||
+            data.weather[0].icon === "09n"
           ) {
             setWeatherIcon(rainfallIcon);
           } else if (
-            data.weather.icon === "10d" ||
-            data.weather.icon === "10n"
+            data.weather[0].icon === "10d" ||
+            data.weather[0].icon === "10n"
           ) {
             setWeatherIcon(rainfallIcon);
           } else if (
-            data.weather.icon === "13d" ||
-            data.weather.icon === "13n"
+            data.weather[0].icon === "13d" ||
+            data.weather[0].icon === "13n"
           ) {
             setWeatherIcon(snowIcon);
           } else {
