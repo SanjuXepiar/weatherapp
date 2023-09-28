@@ -1,0 +1,52 @@
+main {
+  width: 30vw;
+  height: 85vh;
+  margin: auto;
+  margin-top: 3rem;
+  background: rgb(109, 109, 176);
+  border-radius: 2rem;
+}
+.weather_Search {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 3rem;
+  padding: 2rem;
+}
+.header input {
+  width: 80%;
+  border: none;
+  border-radius: 3rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+  text-indent: 1.2rem;
+}
+.weather_Info {
+  /* height: 5rem; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.weather_Info #temperature {
+  font-size: 2rem;
+  margin-bottom: 0;
+  font-weight: 600;
+}
+.weather_Info #location {
+  font-size: 2.5rem;
+  margin-top: 0;
+}
+.weather_Desc {
+  display: flex;
+  justify-content: center;
+  gap: 10%;
+}
+.humidity_Info {
+  display: flex;
+  gap: 1rem;
+}
+.wind_Info {
+  display: flex;
+  gap: 1rem;
+}
