@@ -21,12 +21,13 @@ const WeatherApp = () => {
   let url = `https://api.openweathermap.org/data/2.5/weather?q=${input}&units=Metric&appid=${apiKey}`;
   const handleSearch = async () => {
     if (input.length === 0) {
-      return 0;
+      return;
     } else {
       try {
         const response = await fetch(url);
         if (response.ok) {
           const data = await response.json();
+          console.log(data);
           setTemperature(`${data.main.temp} \u00b0C`);
           setLocation(data.name);
           setRelativeHumidity(`${data.main.humidity}%`);
@@ -71,7 +72,7 @@ const WeatherApp = () => {
           }
         } else {
           //   console.error(`HTTP Error: ${response.status}`);
-          setAlert(` error${response.status}: Invlid Input`);
+          setAlert(` error${response.status}: Invalid Input`);
         }
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -84,35 +85,27 @@ const WeatherApp = () => {
   };
 
   return (
-    <div>
-      <main>
+    <main className="weather">
+      <h1 className="weather-title">Weather App</h1>
+      <div className="weather-body">
         {/* contains the Input and the Search Icons */}
         <section className="header">
           <div className="weather_Search">
             <input
               type="text"
               placeholder="Search here..."
-              onChange={(e) => setInput(e.target.value)}
               value={input}
+              onChange={(e) => setInput(e.target.value)}
             />
             <img
               src={searchIcon}
               alt=""
-              style={{ width: "3rem", borderRadius: "45%" }}
+              style={{ width: "2rem", height: "2rem", borderRadius: "50%" }}
               onClick={handleSearch}
             />
           </div>
         </section>
-        <p
-          style={{
-            color: "#eeff00",
-            height: "1rem",
-            marginTop: "0",
-            fontSize: "2rem",
-          }}
-        >
-          {alert}
-        </p>
+        <p className="alert">{alert}</p>
         {/* contains the Weather_Icon, Temperature, Location */}
         <section className="body">
           <div className="weather_Info">
@@ -128,28 +121,28 @@ const WeatherApp = () => {
               <img
                 src={humidityIcon}
                 alt=""
-                style={{ width: "3rem", height: "3rem" }}
+                style={{ width: "2rem", height: "2rem" }}
               />
               <div className="humidity_Desc">
                 <span id="relativeHumidity">{relativeHumidity}</span>
-                <h5 style={{ marginTop: "0" }}>Humidity</h5>
+                <h5 style={{ margin: "0", fontSize: ".85rem" }}>Humidity</h5>
               </div>
             </div>
             <div className="wind_Info">
               <img
                 src={windIcon}
                 alt=""
-                style={{ width: "3rem", height: "3rem" }}
+                style={{ width: "2rem", height: "2rem" }}
               />
               <div className="wind_Desc">
                 <span id="windSpeed">{windSpeed}</span>
-                <h5 style={{ marginTop: "0" }}>Wind Speed</h5>
+                <h5 style={{ margin: "0" }}>Wind Speed</h5>
               </div>
             </div>
           </div>
         </section>
-      </main>
-    </div>
+      </div>
+    </main>
   );
 };
 

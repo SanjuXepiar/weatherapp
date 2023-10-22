@@ -1,41 +1,71 @@
-main {
-  width: 30vw;
-  height: 85vh;
+.weather {
+  min-height: 100vh;
   margin: auto;
-  margin-top: 3rem;
-  background: rgb(109, 109, 176);
-  border-radius: 2rem;
+  background: linear-gradient(#618ffa, #9cb9fc, #dadffb);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  padding: 0 1rem;
+}
+.weather-title {
+  margin: 0;
+  text-align: center;
+  font-size: 2rem;
+}
+.weather-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #618ffa;
+  box-shadow: 1px 1px 3px #b0c7fd;
+  border-radius: 0.5rem;
+  width: 100%;
 }
 .weather_Search {
   display: flex;
   justify-content: center;
   gap: 2rem;
-  margin-top: 3rem;
-  padding: 2rem;
+  padding: 1rem;
 }
 .header input {
   width: 80%;
   border: none;
-  border-radius: 3rem;
+  border-radius: 10px;
   font-size: 1.2rem;
   font-weight: 500;
   text-indent: 1.2rem;
 }
+/* Alert message */
+.alert {
+  color: #3460a6;
+  height: 1rem;
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 500;
+  text-align: center;
+}
+
 .weather_Info {
-  /* height: 5rem; */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin: 0.5rem;
 }
 .weather_Info #temperature {
   font-size: 2rem;
-  margin-bottom: 0;
   font-weight: 600;
 }
 .weather_Info #location {
   font-size: 2.5rem;
-  margin-top: 0;
+  margin: 0;
+}
+.footer {
+  width: 80%;
+  padding: 1rem;
 }
 .weather_Desc {
   display: flex;
@@ -44,9 +74,15 @@ main {
 }
 .humidity_Info {
   display: flex;
+  /* justify-content: center; */
   gap: 1rem;
 }
 .wind_Info {
   display: flex;
   gap: 1rem;
+}
+@media screen and (min-width: 480px) {
+  .weather-body {
+    width: 25rem;
+  }
 }
